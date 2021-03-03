@@ -18,10 +18,10 @@ func handler(w http.ResponseWriter,r *http.Request){
 	webName := r.Host
 	//webIpClient := r.RemoteAddr
 	newUrl:=checkWeb(webName)
-	http.Redirect(w, r, string(newUrl), http.StatusSeeOther)
+	http.Redirect(w, r, newUrl, http.StatusSeeOther)
 }
 
-func checkWeb(webName string) int {
+func checkWeb(webName string) string {
 
 	jsonFile, err := os.OpenFile("webs.json",os.O_RDONLY,0755)
 	if err != nil{
@@ -32,17 +32,18 @@ func checkWeb(webName string) int {
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var webs Webs
 	var newPort int
-	var theIp int
+
 
 	json.Unmarshal(byteValue,&webs)
 	for  _,v :=range webs.Webs{
 			if webName == v.Name{
 				newPort = v.Port
-				theIp = v.Ip
 			}
 	}
-	newIpAndPort:=theIp+newPort
+	newIpAndPort:=webName+":"+string(newPort)
 	defer jsonFile.Close()
 	return newIpAndPort
 }
+
+
 
