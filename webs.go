@@ -7,6 +7,8 @@ type Webs struct {
 
 type YourWeb struct {
 	Name string "json:'name'"
-	Ip int "json:'ip'"
-	Port int "json:'port'"
+	Name2 string "json:'name2'"
+	Name3 string "json:'name3'"
+	Ip string "json:'ip'"
+	Port string "json:'port'"
 }

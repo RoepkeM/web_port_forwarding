@@ -31,16 +31,16 @@ func checkWeb(webName string) string {
 
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var webs Webs
-	var newPort int
+	var newPort string
 
 
 	json.Unmarshal(byteValue,&webs)
 	for  _,v :=range webs.Webs{
-			if webName == v.Name{
+			if webName == v.Name || webName == v.Name2 || webName == v.Name3 {
 				newPort = v.Port
 			}
 	}
-	newIpAndPort:=webName+":"+string(newPort)
+	newIpAndPort:=webName+":"+newPort
 	defer jsonFile.Close()
 	return newIpAndPort
 }

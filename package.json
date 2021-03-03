@@ -1,0 +1,16 @@
+{
+  "webs": [
+    {
+      "name":"example.com",
+      "name1":"www.example.com",
+      "name1":"www.example.com",
+      "ip": "127.0.0.1"
+    },
+    {
+      "name":"example2.com",
+      "name1":"www.example2.com",
+      "name1":"www.example2.com",
+      "ip": "127.0.0.1"
+    }
+  ]
+}
