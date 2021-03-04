@@ -3,14 +3,23 @@
     {
       "name":"example.com",
       "name1":"www.example.com",
-      "name1":"www.example.com",
-      "ip": "127.0.0.1"
+      "name2":"www.example.com",
+      "ip": "127.0.0.1",
+      "port": "9000"
     },
     {
       "name":"example2.com",
       "name1":"www.example2.com",
-      "name1":"www.example2.com",
-      "ip": "127.0.0.1"
+      "name2":"www.example2.com",
+      "ip": "127.0.0.1",
+      "port": "8089"
+    },
+    {
+      "name":"exa2.com",
+      "name1":"www.exale2.com",
+      "name2":"www.example2.com",
+      "ip": "127.0.0.1",
+      "port": "6969"
     }
   ]
 }
