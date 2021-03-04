@@ -28,8 +28,6 @@ func checkWeb(webName string) string {
 	if err != nil{
 		fmt.Println(err)
 	}
-
-
 	byteValue, _ := ioutil.ReadAll(jsonFile)
 	var webs Webs
 	var newPort string
