@@ -57,14 +57,15 @@ func main() {
 //This function handles the request to and uses the checkWeb and logs functions
 func handler(w http.ResponseWriter,r *http.Request){
 	webName := r.Host
-	newUrl:=checkWeb(webName)
+	urlGet:= r.URL.String()
+	newUrl:=checkWeb(webName, urlGet)
 	w.Header().Set("Location",newUrl)
 	w.WriteHeader(http.StatusSeeOther)
 	logs(r)
 }
 
 //checkWeb parses the webs.json file and searches the require website to match the needed port
-func checkWeb(webName string) string {
+func checkWeb(webName string,urlGet string) string {
 
 	jsonFile, err := os.OpenFile("webs.json",os.O_RDONLY,0755)
 	if err != nil{
@@ -83,7 +84,7 @@ func checkWeb(webName string) string {
 				newPort = v.Port
 			}
 	}
-	newIpAndPort:="http://"+wName+":"+newPort
+	newIpAndPort:="http://"+wName+":"+newPort+urlGet
 	defer jsonFile.Close()
 	return newIpAndPort
 }
